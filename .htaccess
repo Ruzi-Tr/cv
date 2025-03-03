@@ -1,5 +1,10 @@
+<Directory "/var/www/html">
+    AllowOverride All
+    Require all granted
+</Directory>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} ^(POST)$
-    RewriteRule ^ - [L]
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteRule .* - [L]
 </IfModule>
