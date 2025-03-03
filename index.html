@@ -229,7 +229,7 @@
 
 
                 <div class="right">
-                    <form action="mail.php" method="post">
+                    <form action="mail.php" method="post" id="contactForm">
                         <div id="nameform">
                             <input type="text" name="name" list="firstNameList" placeholder="Your name" class="row"
                                 required>
@@ -258,7 +258,7 @@
         </div>
 
         </div>
-
+<div id="result"> </div>
     </main>
     <script>
 
@@ -282,6 +282,21 @@
 
             event.target.classList.add("active");
         }
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(this);
+
+            fetch("mail.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerHTML = data;
+            })
+            .catch(error => console.error("Error:", error));
+        });
 
     </script>
 </body>
