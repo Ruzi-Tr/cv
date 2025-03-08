@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $to = "recipient@example.com";  // Change this to your email
+    $to = "ruzitorosyan84@gmail.com";  
     $subject = "New Message from Website";
     $body = "Name: $name\nEmail: $email\nMessage: $message";
     $headers = "From: $email\r\nReply-To: $email";
